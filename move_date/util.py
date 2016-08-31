@@ -2,6 +2,7 @@
 Utility module
 """
 
+# TODO use date, not datetime because there is no need for time here
 
 import calendar
 import datetime
