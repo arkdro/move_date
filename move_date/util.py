@@ -3,6 +3,7 @@ Utility module
 """
 
 
+import calendar
 import datetime
 
 
@@ -17,9 +18,28 @@ def move_forward(dt, step):
     elif size == "week":
         return move_forward_weeks(dt, n)
     elif size == "month":
-        pass
+        return move_forward_months(dt, n)
     elif size == "year":
         pass
+
+
+def move_forward_months(dt, nmonths):
+    """ If the target month is shorter, then set the new day to the last day
+    of the month. If the target month is longer, then do not change a day. """
+    year_len = 12
+    dyear = nmonths // year_len
+    dmonth = nmonths % year_len
+    new_year = dt.year + dyear
+    new_month = dt.month + dmonth
+    old_month_len = calendar.monthrange(dt.year, dt.month)[1]
+    new_month_len = calendar.monthrange(new_year, new_month)[1]
+    if new_month_len < old_month_len:
+        new_day = new_month_len
+    else:
+        new_day = dt.day
+    res = datetime.datetime(new_year, new_month, new_day,
+                            dt.hour, dt.minute, dt.second)
+    return res
 
 
 def move_forward_weeks(dt, nweeks):
