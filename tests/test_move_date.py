@@ -47,6 +47,24 @@ class TestStringMethods(unittest.TestCase):
         exp = datetime.datetime(2016, 5, 13, 22, 55, 58)
         self.assertEqual(exp, d2)
 
+    def test_move_forward_years(self):
+        d1 = datetime.datetime(2016, 3, 13, 22, 55, 58)
+        d2 = util.move_forward_years(d1, 2)
+        exp = datetime.datetime(2018, 3, 13, 22, 55, 58)
+        self.assertEqual(exp, d2)
+
+    def test_move_forward_years2(self):
+        d1 = datetime.datetime(2016, 2, 29, 22, 55, 58)
+        d2 = util.move_forward_years(d1, 2)
+        exp = datetime.datetime(2018, 2, 28, 22, 55, 58)
+        self.assertEqual(exp, d2)
+
+    def test_move_forward_years3(self):
+        d1 = datetime.datetime(2016, 2, 12, 22, 55, 58)
+        d2 = util.move_forward_years(d1, 2)
+        exp = datetime.datetime(2018, 2, 12, 22, 55, 58)
+        self.assertEqual(exp, d2)
+
     def test_upper(self):
         self.assertEqual('foo'.upper(), 'FOO')
 
