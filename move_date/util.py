@@ -21,7 +21,12 @@ def move_forward(dt, step):
     elif size == "month":
         return move_forward_months(dt, n)
     elif size == "year":
-        pass
+        return move_forward_years(dt, n)
+
+
+def move_forward_years(dt, nyears):
+    new_year = dt.year + nyears
+    return fix_day(dt, new_year, dt.month)
 
 
 def move_forward_months(dt, nmonths):
