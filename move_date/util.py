@@ -31,8 +31,12 @@ def move_backward_weeks(dt, nweeks):
     return move_backward_days(dt, nweeks * 7)
 
 
-def move_backward_months(dt, ndays):
-    pass
+def move_backward_months(dt, nmonths):
+    new_month = dt.month - nmonths
+    if new_month < 1:
+        pass
+    else:
+        return fix_date(dt, dt.year, new_month)
 
 
 def move_backward_years(dt, ndays):
