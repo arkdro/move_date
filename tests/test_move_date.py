@@ -68,7 +68,7 @@ class TestStringMethods(unittest.TestCase):
     def test_move_backward_months7(self):
         d1 = datetime.date(2019, 2, 28)
         d2 = util.move_backward_months(d1, 26)
-        exp = datetime.date(2016, 2, 28)
+        exp = datetime.date(2016, 12, 28)
         self.assertEqual(exp, d2)
 
     def test_move_backward_months8(self):
