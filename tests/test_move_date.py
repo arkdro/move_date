@@ -29,6 +29,54 @@ class TestStringMethods(unittest.TestCase):
         exp = datetime.date(2016, 2, 26)
         self.assertEqual(exp, d2)
 
+    def test_move_backward_months(self):
+        d1 = datetime.date(2016, 3, 31)
+        d2 = util.move_backward_months(d1, 3)
+        exp = datetime.date(2015, 12, 31)
+        self.assertEqual(exp, d2)
+
+    def test_move_backward_months2(self):
+        d1 = datetime.date(2016, 3, 31)
+        d2 = util.move_backward_months(d1, 2)
+        exp = datetime.date(2016, 1, 31)
+        self.assertEqual(exp, d2)
+
+    def test_move_backward_months3(self):
+        d1 = datetime.date(2016, 3, 13)
+        d2 = util.move_backward_months(d1, 3)
+        exp = datetime.date(2015, 12, 13)
+        self.assertEqual(exp, d2)
+
+    def test_move_backward_months4(self):
+        d1 = datetime.date(2016, 4, 30)
+        d2 = util.move_backward_months(d1, 2)
+        exp = datetime.date(2016, 2, 29)
+        self.assertEqual(exp, d2)
+
+    def test_move_backward_months5(self):
+        d1 = datetime.date(2017, 1, 13)
+        d2 = util.move_backward_months(d1, 1)
+        exp = datetime.date(2016, 12, 13)
+        self.assertEqual(exp, d2)
+
+    def test_move_backward_months6(self):
+        d1 = datetime.date(2019, 1, 13)
+        d2 = util.move_backward_months(d1, 25)
+        exp = datetime.date(2016, 12, 13)
+        self.assertEqual(exp, d2)
+
+    def test_move_backward_months7(self):
+        d1 = datetime.date(2019, 2, 28)
+        d2 = util.move_backward_months(d1, 26)
+        exp = datetime.date(2016, 2, 28)
+        self.assertEqual(exp, d2)
+
+    def test_move_backward_months8(self):
+        d1 = datetime.date(2016, 2, 29)
+        d2 = util.move_backward_months(d1, 24)
+        exp = datetime.date(2014, 2, 28)
+        self.assertEqual(exp, d2)
+
     def test_move_forward_days(self):
         d1 = datetime.date(2016, 6, 25)
         d2 = util.move_forward_days(d1, 3)
