@@ -38,7 +38,7 @@ def fix_day(old_dt, new_year, new_month):
     of the month. If the target month is longer, then do not change a day. """
     old_month_len = calendar.monthrange(old_dt.year, old_dt.month)[1]
     new_month_len = calendar.monthrange(new_year, new_month)[1]
-    if new_month_len < old_month_len:
+    if old_month_len > new_month_len and old_dt.day > new_month_len:
         new_day = new_month_len
     else:
         new_day = old_dt.day
