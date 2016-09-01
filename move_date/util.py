@@ -6,10 +6,6 @@ import calendar
 import datetime
 
 
-def date2():
-    return 'stub2'
-
-
 def move_backward(dt, step):
     (n, size) = step
     if size == "day":
