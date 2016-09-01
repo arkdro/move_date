@@ -53,7 +53,7 @@ def move_forward(dt, step):
 
 def move_forward_years(dt, nyears):
     new_year = dt.year + nyears
-    return fix_day(dt, new_year, dt.month)
+    return fix_date(dt, new_year, dt.month)
 
 
 def move_forward_months(dt, nmonths):
@@ -62,6 +62,10 @@ def move_forward_months(dt, nmonths):
     dmonth = nmonths % year_len
     new_year = dt.year + dyear
     new_month = dt.month + dmonth
+    return fix_date(dt, new_year, new_month)
+
+
+def fix_date(dt, new_year, new_month):
     return fix_day(dt, new_year, new_month)
 
 
