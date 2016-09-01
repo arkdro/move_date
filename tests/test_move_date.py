@@ -11,6 +11,18 @@ class TestStringMethods(unittest.TestCase):
         self.assertEqual(d, 'stub2')
         pass
 
+    def test_move_backward_days(self):
+        d1 = datetime.date(2016, 6, 25)
+        d2 = util.move_backward_days(d1, 3)
+        exp = datetime.date(2016, 6, 22)
+        self.assertEqual(exp, d2)
+
+    def test_move_backward_days2(self):
+        d1 = datetime.date(2016, 3, 1)
+        d2 = util.move_backward_days(d1, 3)
+        exp = datetime.date(2016, 2, 27)
+        self.assertEqual(exp, d2)
+
     def test_move_forward_days(self):
         d1 = datetime.date(2016, 6, 25)
         d2 = util.move_forward_days(d1, 3)
