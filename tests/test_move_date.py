@@ -12,57 +12,57 @@ class TestStringMethods(unittest.TestCase):
         pass
 
     def test_move_forward_days(self):
-        d1 = datetime.datetime(2016, 6, 25, 22, 55, 58)
+        d1 = datetime.date(2016, 6, 25)
         d2 = util.move_forward_days(d1, 3)
-        exp = datetime.datetime(2016, 6, 28, 22, 55, 58)
+        exp = datetime.date(2016, 6, 28)
         self.assertEqual(exp, d2)
 
     def test_move_forward_weeks(self):
-        d1 = datetime.datetime(2016, 3, 25, 22, 55, 58)
+        d1 = datetime.date(2016, 3, 25)
         d2 = util.move_forward_weeks(d1, 3)
-        exp = datetime.datetime(2016, 4, 15, 22, 55, 58)
+        exp = datetime.date(2016, 4, 15)
         self.assertEqual(exp, d2)
 
     def test_move_forward_months(self):
-        d1 = datetime.datetime(2016, 3, 31, 22, 55, 58)
+        d1 = datetime.date(2016, 3, 31)
         d2 = util.move_forward_months(d1, 3)
-        exp = datetime.datetime(2016, 6, 30, 22, 55, 58)
+        exp = datetime.date(2016, 6, 30)
         self.assertEqual(exp, d2)
 
     def test_move_forward_months2(self):
-        d1 = datetime.datetime(2016, 3, 31, 22, 55, 58)
+        d1 = datetime.date(2016, 3, 31)
         d2 = util.move_forward_months(d1, 2)
-        exp = datetime.datetime(2016, 5, 31, 22, 55, 58)
+        exp = datetime.date(2016, 5, 31)
         self.assertEqual(exp, d2)
 
     def test_move_forward_months3(self):
-        d1 = datetime.datetime(2016, 3, 13, 22, 55, 58)
+        d1 = datetime.date(2016, 3, 13)
         d2 = util.move_forward_months(d1, 3)
-        exp = datetime.datetime(2016, 6, 13, 22, 55, 58)
+        exp = datetime.date(2016, 6, 13)
         self.assertEqual(exp, d2)
 
     def test_move_forward_months4(self):
-        d1 = datetime.datetime(2016, 3, 13, 22, 55, 58)
+        d1 = datetime.date(2016, 3, 13)
         d2 = util.move_forward_months(d1, 2)
-        exp = datetime.datetime(2016, 5, 13, 22, 55, 58)
+        exp = datetime.date(2016, 5, 13)
         self.assertEqual(exp, d2)
 
     def test_move_forward_years(self):
-        d1 = datetime.datetime(2016, 3, 13, 22, 55, 58)
+        d1 = datetime.date(2016, 3, 13)
         d2 = util.move_forward_years(d1, 2)
-        exp = datetime.datetime(2018, 3, 13, 22, 55, 58)
+        exp = datetime.date(2018, 3, 13)
         self.assertEqual(exp, d2)
 
     def test_move_forward_years2(self):
-        d1 = datetime.datetime(2016, 2, 29, 22, 55, 58)
+        d1 = datetime.date(2016, 2, 29)
         d2 = util.move_forward_years(d1, 2)
-        exp = datetime.datetime(2018, 2, 28, 22, 55, 58)
+        exp = datetime.date(2018, 2, 28)
         self.assertEqual(exp, d2)
 
     def test_move_forward_years3(self):
-        d1 = datetime.datetime(2016, 2, 12, 22, 55, 58)
+        d1 = datetime.date(2016, 2, 12)
         d2 = util.move_forward_years(d1, 2)
-        exp = datetime.datetime(2018, 2, 12, 22, 55, 58)
+        exp = datetime.date(2018, 2, 12)
         self.assertEqual(exp, d2)
 
     def test_upper(self):
