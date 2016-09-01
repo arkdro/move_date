@@ -57,12 +57,16 @@ def move_forward_years(dt, nyears):
 
 
 def move_forward_months(dt, nmonths):
-    year_len = 12
-    dyear = nmonths // year_len
-    dmonth = nmonths % year_len
-    new_year = dt.year + dyear
-    new_month = dt.month + dmonth
-    return fix_date(dt, new_year, new_month)
+    new_month = dt.month + nmonths
+    if new_month > 12:
+        year_len = 12
+        dyear = new_month // year_len
+        month = new_month % year_len
+        y2 = dt.year + dyear
+        m2 = month
+        return fix_day(dt, y2, m2)
+    else:
+        return fix_day(dt, dt.year, new_month)
 
 
 def fix_date(dt, new_year, new_month):
