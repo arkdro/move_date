@@ -34,7 +34,12 @@ def move_backward_weeks(dt, nweeks):
 def move_backward_months(dt, nmonths):
     new_month = dt.month - nmonths
     if new_month < 1:
-        pass
+        year_len = 12
+        m2 = new_month
+        m3 = year_len - (-m2 % year_len)
+        dy = -m2 // year_len + 1
+        print("m back m: {} {} {}".format(m2, m3, dy))
+        return fix_date(dt, dt.year - dy, m3)
     else:
         return fix_date(dt, dt.year, new_month)
 
