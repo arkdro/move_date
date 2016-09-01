@@ -27,8 +27,8 @@ def move_backward_days(dt, ndays):
     return dt - delta
 
 
-def move_backward_weeks(dt, ndays):
-    pass
+def move_backward_weeks(dt, nweeks):
+    return move_backward_days(dt, nweeks * 7)
 
 
 def move_backward_months(dt, ndays):
