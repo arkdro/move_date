@@ -10,6 +10,35 @@ def date2():
     return 'stub2'
 
 
+def move_backward(dt, step):
+    (n, size) = step
+    if size == "day":
+        return move_backward_days(dt, n)
+    elif size == "week":
+        return move_backward_weeks(dt, n)
+    elif size == "month":
+        return move_backward_months(dt, n)
+    elif size == "year":
+        return move_backward_years(dt, n)
+
+
+def move_backward_days(dt, ndays):
+    delta = datetime.timedelta(ndays)
+    return dt - delta
+
+
+def move_backward_weeks(dt, ndays):
+    pass
+
+
+def move_backward_months(dt, ndays):
+    pass
+
+
+def move_backward_years(dt, ndays):
+    pass
+
+
 def move_forward(dt, step):
     (n, size) = step
     if size == "day":
