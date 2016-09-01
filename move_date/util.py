@@ -2,8 +2,6 @@
 Utility module
 """
 
-# TODO use date, not datetime because there is no need for time here
-
 import calendar
 import datetime
 
@@ -47,8 +45,7 @@ def fix_day(old_dt, new_year, new_month):
         new_day = new_month_len
     else:
         new_day = old_dt.day
-    res = datetime.datetime(new_year, new_month, new_day,
-                            old_dt.hour, old_dt.minute, old_dt.second)
+    res = datetime.date(new_year, new_month, new_day)
     return res
 
 
