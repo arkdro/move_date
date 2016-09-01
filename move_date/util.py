@@ -25,21 +25,25 @@ def move_forward(dt, step):
 
 
 def move_forward_months(dt, nmonths):
-    """ If the target month is shorter, then set the new day to the last day
-    of the month. If the target month is longer, then do not change a day. """
     year_len = 12
     dyear = nmonths // year_len
     dmonth = nmonths % year_len
     new_year = dt.year + dyear
     new_month = dt.month + dmonth
-    old_month_len = calendar.monthrange(dt.year, dt.month)[1]
+    return fix_day(dt, new_year, new_month)
+
+
+def fix_day(old_dt, new_year, new_month):
+    """ If the target month is shorter, then set the new day to the last day
+    of the month. If the target month is longer, then do not change a day. """
+    old_month_len = calendar.monthrange(old_dt.year, old_dt.month)[1]
     new_month_len = calendar.monthrange(new_year, new_month)[1]
     if new_month_len < old_month_len:
         new_day = new_month_len
     else:
-        new_day = dt.day
+        new_day = old_dt.day
     res = datetime.datetime(new_year, new_month, new_day,
-                            dt.hour, dt.minute, dt.second)
+                            old_dt.hour, old_dt.minute, old_dt.second)
     return res
 
 
